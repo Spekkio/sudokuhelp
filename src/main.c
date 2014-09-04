@@ -249,8 +249,10 @@ int main(int argc, char **argv)
 	break;
       }
 
-    if(c>=(0+48) && c<=(9+48)) {
-      data[cpos_x][cpos_y] = c-48;
+    if(lock[cpos_x][cpos_y]==0) {
+      if(c>=(0+48) && c<=(9+48)) {
+	data[cpos_x][cpos_y] = c-48;
+      }
     }
 
     if(c=='q') {
