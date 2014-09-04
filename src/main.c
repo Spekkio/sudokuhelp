@@ -57,13 +57,28 @@ int data[9][9] =
   {9,0,0, 3,6,0, 0,1,0}
 };
 
+int lock[9][9] =
+{
+  {0,0,0, 0,0,0, 0,0,0},
+  {0,0,0, 0,0,0, 0,0,0},
+  {0,0,0, 0,0,0, 0,0,0},
+
+  {0,0,0, 0,0,0, 0,0,0},
+  {0,0,0, 0,0,0, 0,0,0},
+  {0,0,0, 0,0,0, 0,0,0},
+
+  {0,0,0, 0,0,0, 0,0,0},
+  {0,0,0, 0,0,0, 0,0,0},
+  {0,0,0, 0,0,0, 0,0,0}
+};
+
 /*positions of the numbers on the screen*/
 int pos[9][9][2];
 
 int help[9] = {0,0,0,0,0,0,0,0,0};
 int complete[9] = {0,0,0,0,0,0,0,0,0};
 int highlight[9] = {0,0,0,0,0,0,0,0,0};
-int lock[9] = {0,0,0,0,0,0,0,0,0};
+
 
 /***********/
 /*Functions*/
@@ -75,6 +90,7 @@ void printHelp()
   mvprintw(i++, 25, "Commands");
   mvprintw(i++, 25, "i: Highlight number.");
   mvprintw(i++, 25, "h: Help guides on number.");
+  mvprintw(i++, 25, "l: Lock a number.");
   mvprintw(i++, 25, "d,x,0: Delete a number.");
   mvprintw(i++, 25, "");
   mvprintw(i++, 25, "Information");
@@ -191,15 +207,7 @@ int main(int argc, char **argv)
 	break;
 
       case 'l':
-	mvprintw(0,0,"Lock numbers: ");
-	refresh();
-	opt=getchar();
-	clear();
-
-	if(opt>=(0+48) && opt<=(9+48)) {
-	  lock[opt-48] = !lock[opt-48];
-	  /*mvprintw(0,0,"Highlighting: %i",opt-48);*/
-	}
+	lock[cpos_x][cpos_y] = !lock[cpos_x][cpos_y];
 	break;
 
       case 'i':
@@ -232,7 +240,9 @@ int main(int argc, char **argv)
       case 'd':
       case 'x':
       case KEY_DL:
-	data[cpos_x][cpos_y] = 0;
+	if(lock[cpos_x][cpos_y]==0) {
+	  data[cpos_x][cpos_y] = 0;
+	}
 	break;
 
       default:

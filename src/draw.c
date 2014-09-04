@@ -28,7 +28,7 @@
 
 void printRows()
 {
-  int i,r,h=0;
+  int i,r;
   char c[10];
 
   for(i=0;i<9;i++)
@@ -53,22 +53,22 @@ void printRows()
 	  if(c[0]=='0') c[0]=EMPTY_CHAR;
 
 	  /* Detect if a number should be highlighted */
-	  h=0;
 	  if( (c[0]-48)<=9 && (c[0]-48)>=0) {
 	    if(highlight[c[0]-48]) {
 	      attron(COLOR_PAIR(C_HIGHLIGHT));
 	      attron(A_BOLD);
-	      h=1;
 	    }
 	  }
 
+	  if(lock[i][r])
+	    {
+	      attron(A_BOLD);
+	    }
+
 	  mvprintw( pos[i][r][X_POS], pos[i][r][Y_POS] ,"%s",c);
 
-	  /* if it was highlighted turn highlight off */
-	  if(h) {
 	    attroff(A_BOLD);
 	    attroff(COLOR_PAIR(C_HIGHLIGHT));
-	  }
 	}
     }
 }
