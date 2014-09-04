@@ -70,12 +70,22 @@ int lock[9] = {0,0,0,0,0,0,0,0,0};
 /***********/
 void printHelp()
 {
+  int c;
   int i=2;
   mvprintw(i++, 25, "Commands");
   mvprintw(i++, 25, "i: Highlight number.");
   mvprintw(i++, 25, "h: Help guides on number.");
   mvprintw(i++, 25, "d,x,0: Delete a number.");
   mvprintw(i++, 25, "");
+  mvprintw(i++, 25, "Information");
+  mvprintw(i++, 25, "-----------");
+
+  for(c=0;c<9;c++) {
+    if(help[c]==1) {
+      mvprintw(i++, 25, "Help guides is on num: %i",c);
+    }
+  }
+
 
 }
 
@@ -118,7 +128,7 @@ int args(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
-  int c, opt;
+  int c, opt, i;
 
   if(args(argc,argv)) {
     return 0;
@@ -200,19 +210,22 @@ int main(int argc, char **argv)
 
 	if(opt>=(0+48) && opt<=(9+48)) {
 	  highlight[opt-48] = !highlight[opt-48];
-	  /*mvprintw(0,0,"Highlighting: %i",opt-48);*/
 	}
 	break;
 
       case 'h':
-	mvprintw(0,0,"Help bars on number: ");
+	mvprintw(0,0,"Help bars on number[On=<number>, Off=<any key>]: ");
 	refresh();
 	opt=getchar();
 	clear();
 
+	/*clear help bars, works only on one number at a time*/
+	for(i=0;i<9;i++) {
+	  help[i]=0;
+	}
+
 	if(opt>=(0+48) && opt<=(9+48)) {
-	  help[opt-48] = !help[opt-48];
-	  /*mvprintw(0,0,"Highlighting: %i",opt-48);*/
+	  help[opt-48] = 1;
 	}
 	break;
 
