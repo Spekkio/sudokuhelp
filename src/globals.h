@@ -44,6 +44,9 @@ struct abox {
 #define C_ERROR      2
 #define C_HIGHLIGHT  3
 #define C_HIGHLIGHT2 4
+#define C_GREEN      5
+
+#define EMPTY_CHAR   '_'
 
 #define X_POS 0
 #define Y_POS 1

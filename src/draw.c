@@ -50,7 +50,7 @@ void printRows()
 	{
 	  sprintf(&c[0], "%i", *rows[i].data[r]);
 
-	  if(c[0]=='0') c[0]='_';
+	  if(c[0]=='0') c[0]=EMPTY_CHAR;
 
 	  /* Detect if a number should be highlighted */
 	  h=0;
@@ -105,11 +105,16 @@ void highlightColumn(const int n)
   }
 }
 
-void highlightBox(const int n)
+/*******************/
+/* Highlight a box */
+/*******************/
+void highlightBox(const int n, const int color, const int avoid_num)
 {
   int y,x;
+  int cx,cy;
 
   x=y=0;
+  cy=cx=0;
 
   switch(n)
     {
@@ -119,7 +124,19 @@ void highlightBox(const int n)
       while(y<=(pos[0][n*3+2][Y_POS]-pos[0][n*3][Y_POS])) { /*really is x dir*/
 	x=0;
 	while(x<=(pos[2][0][X_POS]-pos[0][0][X_POS])) { /*really is y dir*/
-	  mvChangeColor(pos[0][0][X_POS]+x, pos[0][n*3][Y_POS]+y, C_HIGHLIGHT2);
+
+	  /*x,y was switched sometime*/
+	  cy = pos[0][0][X_POS]+x;
+	  cx = pos[0][n*3][Y_POS]+y;
+
+	  if(avoid_num) {
+	    if(yxisChar(cy, cx, EMPTY_CHAR))
+	      {
+		mvChangeColor(cy, cx, color);
+	      }
+	  } else
+	    mvChangeColor(cy, cx, color);
+
 	  x++;
 	}
 	y++;
@@ -132,7 +149,19 @@ void highlightBox(const int n)
       while(y<=(pos[0][(n-3)*3+2][Y_POS]-pos[0][(n-3)*3][Y_POS])) { /*really is x dir*/
 	x=0;
 	while(x<=(pos[5][0][X_POS]-pos[3][0][X_POS])) { /*really is y dir*/
-	  mvChangeColor(pos[3][0][X_POS]+x, pos[0][(n-3)*3][Y_POS]+y, C_HIGHLIGHT2);
+
+	  /*x,y was switched sometime*/
+	  cy = pos[3][0][X_POS]+x;
+	  cx = pos[0][(n-3)*3][Y_POS]+y;
+
+	  if(avoid_num) {
+	    if(yxisChar(cy, cx, EMPTY_CHAR))
+	      {
+		mvChangeColor(cy, cx, color);
+	      }
+	  } else
+	    mvChangeColor(cy, cx, color);
+
 	  x++;
 	}
 	y++;
@@ -145,7 +174,19 @@ void highlightBox(const int n)
       while(y<=(pos[0][(n-6)*3+2][Y_POS]-pos[0][(n-6)*3][Y_POS])) { /*really is x dir*/
 	x=0;
 	while(x<=(pos[8][0][X_POS]-pos[6][0][X_POS])) { /*really is y dir*/
-	  mvChangeColor(pos[6][0][X_POS]+x, pos[0][(n-6)*3][Y_POS]+y, C_HIGHLIGHT2);
+
+	  /*x,y was switched sometime*/
+	  cy = pos[6][0][X_POS]+x;
+	  cx = pos[0][(n-6)*3][Y_POS]+y;
+
+	  if(avoid_num) {
+	    if(yxisChar(cy, cx, EMPTY_CHAR))
+	      {
+		mvChangeColor(cy, cx, color);
+	      }
+	  } else
+	    mvChangeColor(cy, cx, color);
+
 	  x++;
 	}
 	y++;
@@ -158,6 +199,20 @@ void highlightBox(const int n)
 
 }
 
+/*********************************/
+/* Check char at screen position */
+/*********************************/
+int yxisChar(const int y, const int x, const int c)
+{
+  int cmp;
+  move(y,x);
+  cmp=inch();
+
+  if(cmp==c) {
+    return 1;
+  } else return 0;
+
+}
 
 /************************************************/
 /* Change the color scheme of a pixel on screen */
@@ -182,6 +237,8 @@ void drawHelpGuides()
 
   for(i=0;i<9;i++) {
 
+    highlightBox(i, C_GREEN, 1); /* mark free fields green */
+
     /*number i wants help guides*/
     if(help[i]==1) {
 
@@ -200,7 +257,7 @@ void drawHelpGuides()
 
 	  /*look in boxes*/
 	  if(*boxes[s].data[d]==i) {
-	    highlightBox(s);
+	    highlightBox(s, C_HIGHLIGHT2, 0);
 	  }
 	}
       }

@@ -140,9 +140,13 @@ int main(int argc, char **argv)
   init_pair(C_ERROR     , COLOR_WHITE, COLOR_RED);    /*Error*/
   init_pair(C_HIGHLIGHT , COLOR_BLACK, COLOR_WHITE);  /*Highlight*/
   init_pair(C_HIGHLIGHT2, COLOR_WHITE, COLOR_BLUE);   /*Highlight 2*/
+  init_pair(C_GREEN     , COLOR_WHITE, COLOR_GREEN); 
 
+  clear();
+  detectErrors();
   printRows();
   printHelp();
+  drawHelpGuides();
 
   refresh();
 
