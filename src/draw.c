@@ -53,8 +53,8 @@ void printRows()
 	  if(c[0]=='0') c[0]=EMPTY_CHAR;
 
 	  /* Detect if a number should be highlighted */
-	  if( (c[0]-48)<=9 && (c[0]-48)>=0) {
-	    if(highlight[c[0]-48]) {
+	  if( (c[0]-48)<=9 && (c[0]-48)>=1) {
+	    if(highlight[c[0]-48-1]) {
 	      attron(COLOR_PAIR(C_HIGHLIGHT));
 	      attron(A_BOLD);
 	    }
@@ -246,17 +246,17 @@ void drawHelpGuides()
 	for(d=0;d<9;d++) {
 
 	  /*look in rows*/
-	  if(*rows[s].data[d]==i) {
+	  if(*rows[s].data[d]==i+1) {
 	    highlightRow(s);
 	  }
 
 	  /*look in columns*/
-	  if(*columns[s].data[d]==i) {
+	  if(*columns[s].data[d]==i+1) {
 	    highlightColumn(s);
 	  }
 
 	  /*look in boxes*/
-	  if(*boxes[s].data[d]==i) {
+	  if(*boxes[s].data[d]==i+1) {
 	    highlightBox(s, C_HIGHLIGHT2, 0);
 	  }
 	}

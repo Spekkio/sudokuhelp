@@ -98,7 +98,7 @@ void printHelp()
 
   for(c=0;c<9;c++) {
     if(help[c]==1) {
-      mvprintw(i++, 25, "Help guides is on num: %i",c);
+      mvprintw(i++, 25, "Help guides is on num: %i",c+1);
     }
   }
 
@@ -217,7 +217,7 @@ int main(int argc, char **argv)
 	clear();
 
 	if(opt>=(0+49) && opt<=(9+48)) {
-	  highlight[opt-48] = !highlight[opt-48];
+	  highlight[opt-48-1] = !highlight[opt-48-1];
 	}
 	break;
 
@@ -233,7 +233,7 @@ int main(int argc, char **argv)
 	}
 
 	if(opt>=(0+49) && opt<=(9+48)) {
-	  help[opt-48] = 1;
+	  help[opt-48-1] = 1;
 	}
 	break;
 
