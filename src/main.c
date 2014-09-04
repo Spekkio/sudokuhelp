@@ -216,7 +216,7 @@ int main(int argc, char **argv)
 	opt=getchar();
 	clear();
 
-	if(opt>=(0+48) && opt<=(9+48)) {
+	if(opt>=(0+49) && opt<=(9+48)) {
 	  highlight[opt-48] = !highlight[opt-48];
 	}
 	break;
@@ -232,7 +232,7 @@ int main(int argc, char **argv)
 	  help[i]=0;
 	}
 
-	if(opt>=(0+48) && opt<=(9+48)) {
+	if(opt>=(0+49) && opt<=(9+48)) {
 	  help[opt-48] = 1;
 	}
 	break;
