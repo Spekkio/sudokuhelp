@@ -114,7 +114,7 @@ void highlightColumn(const int n)
  * @param color color to use
  * @param avoid_num if set to 1, only highlight free cells. otherwise set to zero
  */
-void highlightBox(const int n, const int color, const int avoid_num)
+void highlightBox(const int n, const t_color color, const int avoid_num)
 {
   int y,x;
   int cx,cy;
@@ -230,7 +230,7 @@ int yxisChar(const int y, const int x, const int c)
  * @param x x position on the screen
  * @param color color to use.
  */
-void mvChangeColor(const int y, const int x, const int color)
+void mvChangeColor(const int y, const int x, const t_color color)
 {
   int c;
   move(y,x);

@@ -22,8 +22,8 @@
 void printRows();
 void highlightRow(const int n);
 void highlightColumn(const int n);
-void highlightBox(const int n, const int color, const int avoid_num);
-void mvChangeColor(const int y, const int x, const int color);
+void highlightBox(const int n, const t_color color, const int avoid_num);
+void mvChangeColor(const int y, const int x, const t_color color);
 int yxisChar(const int y, const int x, const int c);
 void drawHelpGuides();
 

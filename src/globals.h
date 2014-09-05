@@ -51,16 +51,26 @@ struct abox {
   int error;     /*!< @brief Unused */
 };
 
-#define C_NORMAL     1 /*!< @brief Standard background color */
-#define C_ERROR      2 /*!< @brief Color of an error */
-#define C_HIGHLIGHT  3 /*!< @brief Highlight single number */
-#define C_HIGHLIGHT2 4 /*!< @brief Help guides */
-#define C_GREEN      5 /*!< @brief Color for free spaces */
+/**
+ * @brief ID numbers for the colors used on screen.
+ */
+enum color {
+  C_NORMAL,
+  C_ERROR,
+  C_HIGHLIGHT,
+  C_HIGHLIGHT2,
+  C_GREEN
+};
 
-#define EMPTY_CHAR   '_' /*!< @brief Characte on free space */
+/**
+ * @brief type definition of color ID's
+ */
+typedef enum color t_color;
 
 #define X_POS 0 /*!< @brief used by \link pos pos \endlink */
 #define Y_POS 1 /*!< @brief used by \link pos pos \endlink */
+
+#define EMPTY_CHAR   '_' /*!< @brief Characte on free space */
 
 /*******************/
 /*Global Variables */
