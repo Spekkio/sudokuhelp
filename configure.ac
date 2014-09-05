@@ -1,9 +1,19 @@
-AC_INIT([Sudoku Helper], [1.0], [maxifoo@gmail.com], [sudokuhelp], [https:/github.com/spekkio/sudokuhelp])
+AC_INIT([Sudoku Helper], [0.1], [maxifoo@gmail.com], [sudokuhelp], [https:/github.com/spekkio/sudokuhelp])
 AC_PREREQ([2.59])
 AM_INIT_AUTOMAKE([1.10 -Wall no-define])
 AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC_STDC
 AM_PROG_CC_C_O
+AC_PROG_CXX
+DX_HTML_FEATURE(ON)
+DX_CHM_FEATURE(OFF)
+DX_CHI_FEATURE(OFF)
+DX_MAN_FEATURE(OFF)
+DX_RTF_FEATURE(OFF)
+DX_XML_FEATURE(OFF)
+DX_PDF_FEATURE(OFF)
+DX_PS_FEATURE(OFF)
+DX_INIT_DOXYGEN(sudokuhelp, doxygen.cfg, doc)
 PKG_CHECK_MODULES([DEPS], [ncurses >= 5.9.20110404])
 AC_HEADER_STDC
 AC_HEADER_STDBOOL

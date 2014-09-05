@@ -2,6 +2,10 @@ AUTOMAKE_OPTIONS = subdir-objects
 
 ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
 
+include aminclude.am
+
+MOSTLYCLEANFILES = $(DX_CLEANFILES)
+
 AM_CFLAGS = -pedantic -Wall -Wextra -Werror
 
 AM_CPPFLAGS =$(DEPS_CFLAGS)
@@ -12,4 +16,4 @@ sudokuhelp_SOURCES = src/detect.c src/draw.c src/globals.h src/setup.c src/sort.
 
 sudokuhelp_LDADD = $(DEPS_LIBS)
 
-EXTRA_DIST = autogen.sh
+EXTRA_DIST = autogen.sh $(DX_CONFIG) doc/html
