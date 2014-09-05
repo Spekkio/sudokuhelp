@@ -85,7 +85,6 @@ extern int cpos_x, cpos_y;
 extern int data[9][9];
 extern int lock[9][9];
 
-/*positions of the numbers on the screen*/
 extern int pos[9][9][2];
 
 extern int help[9];

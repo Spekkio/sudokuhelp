@@ -206,11 +206,11 @@ void highlightBox(const int n, const t_color color, const int avoid_num)
 }
 
 /**
- * Returns 1 if character on position x,y equals given character c.
  * @brief Compare character at screen position x,y with c.
  * @param y y position on the screen
  * @param x x position on the screen
  * @param c character to check
+ * @return Returns 1 if character on position x,y equals given character c.
  */
 int yxisChar(const int y, const int x, const int c)
 {

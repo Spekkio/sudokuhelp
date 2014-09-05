@@ -146,6 +146,7 @@ void printHelp()
 
 /**
  * @brief Parses the arguments passed to main()
+ * @returns Returns 1 if the given argument prevents to start the program, otherwise returns 0 and continues to run the program.
  */
 int args(int argc, char **argv)
 {
