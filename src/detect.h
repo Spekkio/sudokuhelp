@@ -1,3 +1,4 @@
+/** @file detect.h */
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles

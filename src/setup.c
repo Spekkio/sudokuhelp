@@ -1,3 +1,8 @@
+/** 
+ * @file setup.c
+ * @brief Contains setup routines that runs once.
+ */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles
@@ -21,9 +26,9 @@
 #include "globals.h"
 #include "setup.h"
 
-/**************************************************/
-/* Setup pointers of the row/col/boxes structures */
-/**************************************************/
+/**
+ * Setup pointers for the row, columns and boxes structures.
+ */
 void setupPointers()
 {
   int i,c;
@@ -139,9 +144,11 @@ void setupPointers()
 
 }
 
-/******************************************/
-/* Calculate the positions of the numbers */
-/******************************************/
+/**
+ * Calculate the positions of the numbers on the screen
+ * and store in the global matrix pos.
+ * @sa pos
+ */
 void calcPos()
 {
   int i,r;

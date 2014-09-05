@@ -1,3 +1,4 @@
+/** @file setup.h */
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles

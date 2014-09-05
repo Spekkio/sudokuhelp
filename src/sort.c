@@ -1,3 +1,5 @@
+/** @file sort.c */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles
@@ -21,6 +23,12 @@
 #include "globals.h"
 #include "sort.h"
 
+/**
+ * Sorts an array using bubble sort.
+ * 
+ * @param data this is the input array
+ * @param sort output array where the result is stored
+ */
 void dataSort(int * data[9], int sort[9])
 {
   int i,temp,sorted=0;

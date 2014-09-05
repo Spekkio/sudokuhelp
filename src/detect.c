@@ -1,3 +1,5 @@
+/** @file detect.c */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles
@@ -22,6 +24,9 @@
 #include "detect.h"
 #include "sort.h"
 
+/**
+ * @brief Detect mistakes made on the sudoku board and print error messages.
+ */
 void detectErrors() {
   int sortr[9];
   int sortc[9];

@@ -1,3 +1,5 @@
+/** @file globals.h */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles
@@ -22,34 +24,43 @@
 /*Variable declarations*/
 /***********************/
 
+/**
+ * @brief The row structure
+ */
 struct row {
-  int * data[9];
-  int lock;
-  int error;
-}row;
+  int * data[9]; /*!< @brief Pointers to the numbers on the row */
+  int lock;      /*!< @brief Unused */
+  int error;     /*!< @brief Unused */
+};
 
+/**
+ * @brief The column structure
+ */
 struct column {
-  int * data[9];
-  int lock;
-  int error;
-}column;
+  int * data[9];  /*!< @brief Pointers to the numbers in the column */
+  int lock;       /*!< Unused */
+  int error;      /*!< Unused */
+};
 
+/**
+ * @brief The box structure
+ */
 struct abox {
-  int * data[9];
-  int * lock[9];
-  int error;
-}abox;
+  int * data[9]; /*!< @brief Pointers to the numbers in the box. */
+  int * lock[9]; /*!< @brief Unused */
+  int error;     /*!< @brief Unused */
+};
 
-#define C_NORMAL     1
-#define C_ERROR      2
-#define C_HIGHLIGHT  3
-#define C_HIGHLIGHT2 4
-#define C_GREEN      5
+#define C_NORMAL     1 /*!< @brief Standard background color */
+#define C_ERROR      2 /*!< @brief Color of an error */
+#define C_HIGHLIGHT  3 /*!< @brief Highlight single number */
+#define C_HIGHLIGHT2 4 /*!< @brief Help guides */
+#define C_GREEN      5 /*!< @brief Color for free spaces */
 
-#define EMPTY_CHAR   '_'
+#define EMPTY_CHAR   '_' /*!< @brief Characte on free space */
 
-#define X_POS 0
-#define Y_POS 1
+#define X_POS 0 /*!< @brief used by \link pos pos \endlink */
+#define Y_POS 1 /*!< @brief used by \link pos pos \endlink */
 
 /*******************/
 /*Global Variables */

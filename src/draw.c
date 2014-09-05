@@ -1,3 +1,5 @@
+/** @file draw.c */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles
@@ -22,10 +24,9 @@
 #include "globals.h"
 #include "draw.h"
 
-/**************************/
-/* Print the sudoku board */
-/**************************/
-
+/**
+ * @brief Prints the sudoku board
+ */
 void printRows()
 {
   int i,r;
@@ -74,9 +75,10 @@ void printRows()
 }
 
 
-/**************************/
-/* Highlight row number n */
-/**************************/
+/**
+ * @brief Highlight a row
+ * @param n highlights row n
+ */
 void highlightRow(const int n)
 {
   int i;
@@ -90,9 +92,10 @@ void highlightRow(const int n)
 
 }
 
-/*****************************/
-/* Highlight column number n */
-/*****************************/
+/**
+ * @brief Highlight a column
+ * @param n highlights column n
+ */
 void highlightColumn(const int n)
 {
   int i;
@@ -105,9 +108,12 @@ void highlightColumn(const int n)
   }
 }
 
-/*******************/
-/* Highlight a box */
-/*******************/
+/**
+ * @brief Highlight a box
+ * @param n highlights box n
+ * @param color color to use
+ * @param avoid_num if set to 1, only highlight free cells. otherwise set to zero
+ */
 void highlightBox(const int n, const int color, const int avoid_num)
 {
   int y,x;
@@ -199,9 +205,13 @@ void highlightBox(const int n, const int color, const int avoid_num)
 
 }
 
-/*********************************/
-/* Check char at screen position */
-/*********************************/
+/**
+ * Returns 1 if character on position x,y equals given character c.
+ * @brief Compare character at screen position x,y with c.
+ * @param y y position on the screen
+ * @param x x position on the screen
+ * @param c character to check
+ */
 int yxisChar(const int y, const int x, const int c)
 {
   int cmp;
@@ -214,9 +224,12 @@ int yxisChar(const int y, const int x, const int c)
 
 }
 
-/************************************************/
-/* Change the color scheme of a pixel on screen */
-/************************************************/
+/**
+ * @brief Change the color scheme of a pixel on screen
+ * @param y y position on the screen
+ * @param x x position on the screen
+ * @param color color to use.
+ */
 void mvChangeColor(const int y, const int x, const int color)
 {
   int c;
@@ -228,9 +241,9 @@ void mvChangeColor(const int y, const int x, const int color)
   attroff(COLOR_PAIR(color));
 }
 
-/****************************/
-/* Draw all the help guides */
-/****************************/
+/**
+ * @brief Draw all the help guides
+ */
 void drawHelpGuides()
 {
   int i,s,d;

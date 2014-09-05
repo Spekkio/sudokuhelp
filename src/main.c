@@ -1,3 +1,5 @@
+/** @file main.c */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles
@@ -36,12 +38,31 @@ void dataSort(int * data[9], int sort[9]);
 /*******************/
 /*Global Variables */
 /*******************/
+
+/**
+ * @brief Pointers to numbers in the sudoku board
+ * \link data data \endlink matrix ordered in rows.
+ */
 struct row rows[9];
+
+/**
+ * @brief Pointers to numbers in the sudoku board
+ * \link data data \endlink matrix ordered in columns.
+ */
 struct column columns[9];
+
+/**
+ * @brief Pointers to numbers in the sudoku board
+ * \link data data \endlink matrix ordered in boxes.
+ */
 struct abox boxes[9];
 
-int cpos_x, cpos_y;
+int cpos_x; /*!< @brief X Position of the marker in the Sudoku board */
+int cpos_y; /*!< @brief Y Position of the marker in the Sudoku board */
 
+/**
+ * @brief The Sudoku board matrix.
+ */
 int data[9][9] =
 {
   {0,7,0, 0,4,2, 0,0,3},
@@ -57,6 +78,9 @@ int data[9][9] =
   {9,0,0, 3,6,0, 0,1,0}
 };
 
+/**
+ * @brief Used to lock numbers on the Sudoku board.
+ */
 int lock[9][9] =
 {
   {0,0,0, 0,0,0, 0,0,0},
@@ -72,17 +96,34 @@ int lock[9][9] =
   {0,0,0, 0,0,0, 0,0,0}
 };
 
-/*positions of the numbers on the screen*/
+/**
+ * @brief The positions of the Sudoku board numbers on the screen.
+ */
 int pos[9][9][2];
 
+/**
+ * @brief Which numbers to draw help guides for.
+ */
 int help[9] = {0,0,0,0,0,0,0,0,0};
+
+/**
+ * @brief Unused
+ */
 int complete[9] = {0,0,0,0,0,0,0,0,0};
+
+/**
+ * @brief Which numbers to highlight.
+ */
 int highlight[9] = {0,0,0,0,0,0,0,0,0};
 
 
 /***********/
 /*Functions*/
 /***********/
+
+/**
+ * @brief prints the help text on the screen.
+ */
 void printHelp()
 {
   int c;
@@ -101,10 +142,11 @@ void printHelp()
       mvprintw(i++, 25, "Help guides is on num: %i",c+1);
     }
   }
-
-
 }
 
+/**
+ * @brief Parses the arguments passed to main()
+ */
 int args(int argc, char **argv)
 {
   int i;
@@ -142,6 +184,9 @@ int args(int argc, char **argv)
   return 0;
 }
 
+/**
+ * @brief The main function
+ */
 int main(int argc, char **argv)
 {
   int c, opt, i;
