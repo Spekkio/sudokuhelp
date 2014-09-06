@@ -1,3 +1,5 @@
 A simple program to help me solve sudoku puzzles.
 
+I originally made this to teach myself how to use ncurses and doxygen.
+
 ![Screenshot](sudo_scr.png)
