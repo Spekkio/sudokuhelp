@@ -1,4 +1,8 @@
-/** @file draw.c */
+/** 
+ * @file draw.c 
+ * @brief Functions for drawing the screen.
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
+ */
 
 /**************************************************************************
 
@@ -78,6 +82,7 @@ void printRows()
 /**
  * @brief Highlight a row
  * @param n highlights row n
+ * @todo Make is possible to choose color
  */
 void highlightRow(const int n)
 {
@@ -95,6 +100,7 @@ void highlightRow(const int n)
 /**
  * @brief Highlight a column
  * @param n highlights column n
+ * @todo Make is possible to choose color
  */
 void highlightColumn(const int n)
 {
@@ -207,10 +213,12 @@ void highlightBox(const int n, const t_color color, const int avoid_num)
 
 /**
  * @brief Compare character at screen position x,y with c.
- * @param y y position on the screen
- * @param x x position on the screen
+ * @param y position on the screen
+ * @param x position on the screen
  * @param c character to check
  * @return Returns 1 if character on position x,y equals given character c.
+ * @retval 0 given character does not match the character on x,y
+ * @retval 1 given character matches the character on x,y
  */
 int yxisChar(const int y, const int x, const int c)
 {

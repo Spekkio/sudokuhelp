@@ -1,4 +1,11 @@
-/** @file detect.c */
+/** 
+ * @file detect.c 
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
+ *
+ * @todo Make a function to detect special occasions were there are
+ *       2-3 empty cells in a row, that would draw a help bar for that row.
+ *
+ */
 
 /**************************************************************************
 

@@ -1,4 +1,9 @@
-/** @file draw.h */
+/** 
+ * @file draw.h
+ * @brief Functions for drawing the screen.
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
+ */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles

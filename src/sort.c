@@ -1,4 +1,8 @@
-/** @file sort.c */
+/** 
+ * @file sort.c 
+ * @brief Just a very simple sorting algoritm for arrays.
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
+ */
 
 /**************************************************************************
 

@@ -1,4 +1,8 @@
-/** @file detect.h */
+/** 
+ * @file detect.h
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
+ */
+
 /**************************************************************************
 
     Sudoku Help, A program to help solve sudoku puzzles

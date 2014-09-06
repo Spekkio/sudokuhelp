@@ -1,4 +1,7 @@
-/** @file globals.h */
+/** 
+ * @file globals.h
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
+ */
 
 /**************************************************************************
 
@@ -53,6 +56,7 @@ struct abox {
 
 /**
  * @brief ID numbers for the colors used on screen.
+ * @todo Decide better naming for C_GREEN and C_HIGHLIGHT2
  */
 enum color {
   C_NORMAL,

@@ -1,6 +1,7 @@
 /** 
- * @file setup.c
+ * @file setup.c 
  * @brief Contains setup routines that runs once.
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
  */
 
 /**************************************************************************

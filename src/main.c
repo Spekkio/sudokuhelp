@@ -1,4 +1,7 @@
-/** @file main.c */
+/** 
+ * @file main.c 
+ * @author Copyright (C) 2014  Daniel Hedeblom <maxifoo@gmail.com>
+ */
 
 /**************************************************************************
 
@@ -137,16 +140,25 @@ void printHelp()
   mvprintw(i++, 25, "Information");
   mvprintw(i++, 25, "-----------");
 
+  /**
+   * @todo Show a list of what numbers have help bars activated.
+   */
   for(c=0;c<9;c++) {
     if(help[c]==1) {
       mvprintw(i++, 25, "Help guides is on num: %i",c+1);
     }
   }
+
+  /**
+   * @todo Print information on what numbers are completed.
+   */
+
 }
 
 /**
  * @brief Parses the arguments passed to main()
- * @returns Returns 1 if the given argument prevents to start the program, otherwise returns 0 and continues to run the program.
+ * @retval 0 The program should continue to run normally.
+ * @retval 1 The given argument should prevent the program from starting.
  */
 int args(int argc, char **argv)
 {
@@ -253,6 +265,13 @@ int main(int argc, char **argv)
 	break;
 
       case 'l':
+
+	/**
+	 * @bug It is possible to lock free cells, green color clears when a free cell is locked.
+	 *      This might be a bug that turns into a feature though.
+	 *      Rename "lock number" to "lock cell" ?
+	 */
+
 	lock[cpos_x][cpos_y] = !lock[cpos_x][cpos_y];
 	break;
 
@@ -273,7 +292,11 @@ int main(int argc, char **argv)
 	opt=getchar();
 	clear();
 
-	/*clear help bars, works only on one number at a time*/
+	/** 
+	 * @todo Code here currently clears the help[] array.
+	 *       Make it possible to have help bars on several numbers again
+	 *       and show in printHelp() which numbers have help bars activated.
+	 */
 	for(i=0;i<9;i++) {
 	  help[i]=0;
 	}
