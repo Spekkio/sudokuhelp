@@ -65,6 +65,9 @@ int cpos_y; /*!< @brief Y Position of the marker in the Sudoku board */
 
 /**
  * @brief The Sudoku board matrix.
+ * @note Not supposed to have an initial value like this.
+ *       This can be fixed later when the program can generate it's
+ *       own sudoku games.
  */
 int data[9][9] =
 {
@@ -313,6 +316,15 @@ int main(int argc, char **argv)
 	  data[cpos_x][cpos_y] = 0;
 	}
 	break;
+
+	/**
+	 * @todo Add a keyboard function to lock/unlock all numbers on the board.
+	 * @todo Add a keyboard function to clear all help guides.
+	 * @todo Add a keyboard function to clear all highlights.
+	 * @todo Add a keyboard function to clear the sudoku board.
+	 * @todo Add keyboard functions to save/load sudoku board.
+	 * @todo Add keyboard functions to copy sudoku boards in memory, and switch between them.
+	 */
 
       default:
 	break;
