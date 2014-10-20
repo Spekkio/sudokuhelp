@@ -284,8 +284,8 @@ int main(int argc, char **argv)
 	opt=getchar();
 	clear();
 
-	if(opt>=(0+49) && opt<=(9+48)) {
-	  highlight[opt-48-1] = !highlight[opt-48-1];
+	if(opt>=(1+'0') && opt<=(9+'0')) {
+	  highlight[opt-'0'-1] = !highlight[opt-'0'-1];
 	}
 	break;
 
@@ -304,8 +304,8 @@ int main(int argc, char **argv)
 	  help[i]=0;
 	}
 
-	if(opt>=(0+49) && opt<=(9+48)) {
-	  help[opt-48-1] = 1;
+	if(opt>=(1+'0') && opt<=(9+'0')) {
+	  help[opt-'0'-1] = 1;
 	}
 	break;
 
@@ -331,8 +331,8 @@ int main(int argc, char **argv)
       }
 
     if(lock[cpos_x][cpos_y]==0) {
-      if(c>=(0+48) && c<=(9+48)) {
-	data[cpos_x][cpos_y] = c-48;
+      if(c>=(0+'0') && c<=(9+'0')) {
+	data[cpos_x][cpos_y] = c-'0';
       }
     }
 
