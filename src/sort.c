@@ -24,33 +24,38 @@
 
 **************************************************************************/
 
+#include <stdlib.h>
 #include "globals.h"
 #include "sort.h"
 
 /**
- * Sorts an array using bubble sort.
+ * Compare function to be used by qsort()
+ */
+int cmp(const void * a, const void * b)
+{
+  int f = *(int *)a;
+  int s = *(int *)b;
+
+  if(f<s)
+    return -1;
+  else if(f==s)
+    return 0;
+  else /*if(f>s)*/
+    return 1;
+
+}
+
+/**
+ * Sorts an array using builtin qsort algorithm.
  * 
  * @param data this is the input array
  * @param sort output array where the result is stored
  */
 void dataSort(int * data[9], int sort[9])
 {
-  int i,temp,sorted=0;
-
+  int i;
   for(i=0;i<9;i++) {
     sort[i] = *data[i];
   }
-
-  i=0;
-  while(sorted==0) {
-    sorted=1;
-    for(i=0;i<(9-1);i++) {
-      if(sort[i] > sort[i+1]) {
-	temp = sort[i];
-	sort[i] = sort[i+1];
-	sort[i+1] = temp;
-	sorted=0;
-      }
-    }
-  }
+  qsort(&sort[0], 9, sizeof(int), cmp);
 }
